@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="uft-8" />
+        <title> Create account</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='create_account_style.css') }}" />
+        <script type="text/javascript" src="{{ url_for('static', filename='create_account.js') }}"></script>
+    </head>
+    <body> 
+        <div class="paralax">
+            
+            
+            <div id="title_image"><img src="../static/create_account_images/scrolldown.png" alt="scrolldown" height="300px" width="800px"></div>
+            <div id="subtitle_image"></div>
+        </div>
+       
+        
+        <div class="sign-up-form">
+            <h1>Sign up Form</h1>
+            </script>
+            <form method = "POST" action="create_account.js">
+                <input type="text" id="email" class="input-box" placeholder="Enter your email">
+                <input type="text" id="username" class="input-box" placeholder="Enter your username">
+                <input type="password" id="password" class="input-box" placeholder="Enter your password">
+                <input type="password" id="confirm_password" class="input-box" placeholder="Enter your password again">
+                <p><input type="checkbox" id="login_nexttime" name="login_nexttime" value="login_nexttime">
+                <label for="login_nexttime">Remember me</label>
+
+                <input type="checkbox" onclick="Toggle()"> 
+                <label for="show_password">Show password</label>
+                <script> 
+                // Change the type of input to password or text 
+                function Toggle() { 
+                    var temp1 = document.getElementById("password"); 
+                    var temp2 = document.getElementById("confirm_password"); 
+                    if (temp1.type === "password") { 
+                    temp1.type = "text"; 
+                    temp2.type = "text";
+                    } 
+                    else { 
+                    temp1.type = "password"; 
+                    temp2.type = "password";
+                    } 
+                } 
+                </script> 
+                </p>
+
+                <input type="button" id="signup-button" value="Sign in now" onclick="validate_account();"/>
+
+                <p>
+                    <div class="login-link-wrapper">
+                    </div>
+                </p>
+            </form>
+
+        </div>
+
+        <div class="bottom_container">
+            <div class="nav-wrapper">
+                <div class="nav-link-wrapper">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_container2">
+            <div class="nav-wrapper">
+                <div class="nav-link-wrapper">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_container3">
+            <div class="nav-wrapper">
+                <div class="nav-link-wrapper">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom_container4">
+            <div class="nav-wrapper">
+                <div class="nav-link-wrapper">
+                </div>
+            </div>
+        </div>
+
+    </body>
+</div>
+            </div>
+        </div>
+    </body>
+</html>

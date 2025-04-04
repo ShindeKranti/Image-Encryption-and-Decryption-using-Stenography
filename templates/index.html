@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Image Encryption</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />         -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body> 
+    <div class="paralax">
+    <div id="title_image"><h1 style="color:white;"> Image Encryption / Decryption using Elliptic Curve Cryptography (ECC) and Steganography</h1></div><br>
+    <div id="subtitle_image"></div>
+    </div>
+    <div class="row">
+    <div class="higest"><h1 align="center">Image Encryption / Decryption</h1></div>
+<div class="container">
+    <div class="subtitle"><h2>Select a file to upload</h2> </div>
+    <p>
+        
+    </p>
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+      </div>
+    <script>
+        // Get all elements with class="closebtn"
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        // Loop through all close buttons
+        for (i = 0; i < close.length; i++) {
+          // When someone clicks on a close button
+          close[i].onclick = function(){
+        
+            // Get the parent of <span class="closebtn"> (<div class="alert">)
+            var div = this.parentElement;
+        
+            // Set the opacity of div to 0 (transparent)
+            div.style.opacity = "0";
+        
+            // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+        </script>
+
+    {% if filename %}
+
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="POST" action="http://localhost:5000/uploadImage" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" class="btn btn-info">
+        </p>
+    </form>
+
+    <form method="POST" action="http://localhost:5000/encryptImage" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="submit" value="Encrypt!" class="btn btn-info">
+            </p>
+        </dl>
+    </form>
+
+    <form method="POST" action="http://localhost:5000/decryptImage" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="submit" value="Decrypt!" class="btn btn-info">
+            </p>
+        </dl>
+    </form>
+</div>
+<div class="about-us-form">
+    <div class="title_about">
+        <p>_______________________________________________</p>
+        
+        <h3>The Utilization of Image Encryption / Decryption using Elliptic Curve Cryptography (ECC)</h3>
+        
+    </div>
+    <h1>Background</h1>
+    <p>
+        We accept a user input image. The image is then transformed using our hardest-ever yet beautiful algorithm (ECC algorithm) 
+        and encoded into a Golden Record which is the only unique disk in the world. Even the same picture would be rendered into 
+        two different disks if a different person conducts the encryption, and each picture would have a unique private key associated 
+        with it. Of course, with our super-beautiful algorithm, we are able to translate the message engraving on the disk and transform it 
+        back into the original image. Come with your lovely picture.
+    </p>
+        <h1>How to use</h1>
+        <p>
+            First, click the "Choose File" button and upload the image that you want to encrypt into the golden disc. Click "Encrypt!" to encrypt
+            your message. After a few seconds it should generate a golden disc specifically for your picture. You can click "Save image as" to
+            save the image to your local machine. If you would like to decrypt your golden disc, click the "Choose File" button and upload your
+            disc image. Click "Decrypt!" to decrypt the golden disc. After a few seconds, it should generate the original image for you.
+        </p>
+        
+</div>
+</div>
+</div>
+</body>
+</html>
