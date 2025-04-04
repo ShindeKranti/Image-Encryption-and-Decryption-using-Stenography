@@ -9,3 +9,4 @@ Using an IDE, you need to first enable the python flask. Run the app.py file, in
 
 ## Challenges we ran into
 It was hard to fully integrate front end with back end. Moreover, we had difficulties understanding the ECC’s rationale and the instability of the decipher for the self-implemented ECC algorithm at the beginning of the project. It was also difficult to maintain information of the image as much as possible while achieving the most random and diverse transformations in a reasonable amount of time, so as to integrate the google cloud service.
+
